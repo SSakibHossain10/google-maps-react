@@ -1,0 +1,6 @@
+{
+    "editor.formatOnSave": false,
+    "javascript.preferences.organizeImports": {
+        "enabled": false,
+    }
+}

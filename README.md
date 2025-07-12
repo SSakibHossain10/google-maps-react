@@ -2,25 +2,50 @@
   <img src="resources/readme/fullstackreact-google-maps-tutorial.png" alt="Fullstack React Google Maps Tutorial" />
 </p>
 
-# Google Map React Component Tutorial [![Dolpins](https://cdn.rawgit.com/fullstackreact/google-maps-react/master/resources/readme/dolphins-badge-ff00ff.svg)](https://www.fullstackreact.com)
+# Google Map React Component Tutorial - React 19 Compatible [![Dolpins](https://cdn.rawgit.com/fullstackreact/google-maps-react/master/resources/readme/dolphins-badge-ff00ff.svg)](https://www.fullstackreact.com)
 
-> A declarative Google Map React component using React, lazy-loading dependencies, current-location finder and a test-driven approach by the [Fullstack React](https://fullstackreact.com) team.
+> A declarative Google Map React component using React, lazy-loading dependencies, current-location finder and a test-driven approach by the [Fullstack React](https://fullstackreact.com) team. **Now with React 19 compatibility!**
+
+This is a React 19 compatible fork of the original [google-maps-react](https://github.com/fullstackreact/google-maps-react) library. The main change is replacing the deprecated `ReactDOM.findDOMNode` with modern React refs to ensure compatibility with React 19.
 
 See the [demo](https://fullstackreact.github.io/google-maps-react) and [accompanying blog post](https://www.fullstackreact.com/articles/how-to-write-a-google-maps-react-component/).
+
+## 🚀 React 19 Compatibility
+
+This library has been updated to work with React 19 by:
+- ✅ Replacing `ReactDOM.findDOMNode` with React refs
+- ✅ Maintaining backward compatibility with React 16, 17, and 18
+- ✅ No breaking changes to the public API
+- ✅ Drop-in replacement for the original library
 
 ## Quickstart
 
 First, install the library:
 
 ```shell
-npm install --save google-maps-react
+npm install --save @ssakibhossain10/google-maps-react
 ```
+
+**or**
+
+```shell
+yarn add @ssakibhossain10/google-maps-react
+```
+
+## React Version Support
+
+This library supports:
+- React 16.3+ (when refs were introduced)
+- React 17.x
+- React 18.x
+- **React 19.x** ✨
+
 ## Automatically Lazy-loading Google API
 
 The library includes a helper to wrap around the Google maps API. The `GoogleApiWrapper` Higher-Order component accepts a configuration object which *must* include an `apiKey`. See [lib/GoogleApi.js](https://github.com/fullstackreact/google-maps-react/blob/master/src/lib/GoogleApi.js#L4) for all options it accepts.
 
 ```javascript
-import {GoogleApiWrapper} from 'google-maps-react';
+import {GoogleApiWrapper} from '@ssakibhossain10/google-maps-react';
 
 // ...
 
@@ -58,7 +83,7 @@ export default GoogleApiWrapper({
 ## Sample Usage With Lazy-loading Google API:
 
 ```javascript
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from '@ssakibhossain10/google-maps-react';
 
 export class MapContainer extends Component {
   render() {
@@ -85,6 +110,26 @@ export default GoogleApiWrapper({
 *Note: [Marker](#marker) and [InfoWindow](#infowindow--sample-event-handler-functions) components are disscussed below.*
 
 ![](http://d.pr/i/C7qr.png)
+
+## 🆕 What's New in React 19 Compatible Version
+
+### Changes Made:
+- **Replaced `ReactDOM.findDOMNode`**: The deprecated `findDOMNode` method has been replaced with direct ref access using `this.mapRef.current`
+- **Modern React Patterns**: Uses React refs which is the recommended approach for accessing DOM elements
+- **Backward Compatible**: No breaking changes to the public API - this is a drop-in replacement
+
+### Migration from Original Library:
+If you're coming from the original `google-maps-react` library, simply replace:
+
+```javascript
+// Old
+import {Map, GoogleApiWrapper} from 'google-maps-react';
+
+// New
+import {Map, GoogleApiWrapper} from '@ssakibhossain10/google-maps-react';
+```
+
+Everything else remains exactly the same!
 
 ## Examples
 
@@ -635,6 +680,21 @@ This repo was written and is maintained by the [Fullstack React](https://fullsta
 This app is only one of several apps we have in the book. If you're looking to learn React, there's no faster way than by spending a few hours with the Fullstack React book.
 
 <div style="clear:both"></div>
+
+## About This Fork
+
+This is a React 19 compatible fork of the original [google-maps-react](https://github.com/fullstackreact/google-maps-react) library created by the Fullstack React team. 
+
+### Why This Fork?
+- **React 19 Compatibility**: The original library used `ReactDOM.findDOMNode` which was removed in React 19
+- **Community Maintenance**: Provides a solution while waiting for official React 19 support
+- **Zero Breaking Changes**: Drop-in replacement that maintains the same API
+
+### Original Library
+Full credit goes to the [Fullstack React](https://fullstackreact.com) team for creating this excellent library. This fork simply adds React 19 compatibility by replacing deprecated APIs with modern React patterns.
+
+### Contributing
+If you'd like to contribute to this React 19 compatible version, please feel free to submit issues or pull requests on the [GitHub repository](https://github.com/SSakibHossain10/google-maps-react).
 
 ## License
  [MIT](/LICENSE)

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
 import {camelize} from './lib/String';
 import {makeCancelable} from './lib/cancelablePromise';
 
@@ -134,7 +133,6 @@ export class Map extends React.Component {
       const maps = google.maps;
 
       const mapRef = this.mapRef.current;
-      const node = ReactDOM.findDOMNode(mapRef);
       const curr = this.state.currentLocation;
       const center = new maps.LatLng(curr.lat, curr.lng);
 
@@ -179,7 +177,7 @@ export class Map extends React.Component {
         }
       });
 
-      this.map = new maps.Map(node, mapConfig);
+      this.map = new maps.Map(mapRef, mapConfig);
 
       evtNames.forEach(e => {
         this.listeners[e] = this.map.addListener(e, this.handleEvent(e));
