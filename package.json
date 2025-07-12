@@ -1,6 +1,6 @@
 {
   "name": "@ssakibhossain10/google-maps-react",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "Google maps container with React 19 compatibility",
   "author": "Sakib Hossain <ssakibhossain10@gmail.com>",
   "license": "MIT",
